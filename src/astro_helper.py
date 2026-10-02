@@ -45,6 +45,8 @@ def mean_magnitude(data):
     float
         The mean magnitude.
     """
+    if len(data) == 0:
+        raise ValueError("Data cannot be empty")
     return np.mean(data)
  
  
@@ -62,6 +64,8 @@ def median_magnitude(data):
     float
         The median magnitude.
     """
+    if len(data) == 0:
+        raise ValueError("Data cannot be empty")
     return np.median(data)
  
  
@@ -79,6 +83,8 @@ def magnitude_range(data):
     float
         The difference between the highest and lowest magnitude.
     """
+    if len(data) == 0:
+        raise ValueError("Data cannot be empty")
     return np.max(data) - np.min(data)
  
  
@@ -100,6 +106,8 @@ def relative_brightness_ratio(m1, m2):
         The brightness ratio between the two stars.
         (Formula: ratio = 10 ** (0.4 * (m2 - m1)))
     """
+    if not isinstance(m1, (int, float)) or not isinstance(m2, (int, float)):
+        raise TypeError("Magnitudes must be numbers")
     return 10 ** (0.4 * (m2 - m1))
  
  
@@ -118,6 +126,8 @@ def find_brightest(data):
     float
         The magnitude value of the brightest star (the minimum value).
     """
+    if len(data) == 0:
+        raise ValueError("Data cannot be empty")
     return np.min(data)
  
  
